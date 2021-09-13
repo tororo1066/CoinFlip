@@ -1,0 +1,21 @@
+mysql:
+  host: localhost
+  port: 3306
+  pass: pass
+  user: root
+  db: coinflip
+
+
+
+minmoney: 100.0
+maxmoney: 100000.0
+
+cointex:
+  heads:
+    material: PAPER
+    csm: 0
+  tails:
+    material: PAPER
+    csm: 0
+
+mode: false
