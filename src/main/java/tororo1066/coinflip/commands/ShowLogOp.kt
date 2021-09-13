@@ -12,7 +12,7 @@ class ShowLogOp : CommandExecutor {
 
         val logdata = CoinFlipLog().showlog(Bukkit.getOfflinePlayer(args[1]).uniqueId)
 
-        if (!logdata.succes){
+        if (!logdata.success){
             CoinFlip.sendMsg(sender,"§4データが存在しません")
             return true
         }

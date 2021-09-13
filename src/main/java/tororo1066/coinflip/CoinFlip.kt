@@ -14,6 +14,8 @@ import tororo1066.coinflip.Utils.SItemStack
 import tororo1066.coinflip.Utils.VaultAPI
 import tororo1066.coinflip.commands.CoinFlipCommand
 import java.util.*
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 import kotlin.collections.HashMap
 
 class CoinFlip : JavaPlugin(){
@@ -26,6 +28,7 @@ class CoinFlip : JavaPlugin(){
         lateinit var vault : VaultAPI
         lateinit var mysql : MySQLAPI
         lateinit var plugin : CoinFlip
+        lateinit var es : ExecutorService
         val coinFlipData = HashMap<UUID,CoinFlipRoom>()
         lateinit var heads: SInventoryItem
         lateinit var tails: SInventoryItem
@@ -53,6 +56,7 @@ class CoinFlip : JavaPlugin(){
         mysql = MySQLAPI(this)
         coinConfig = config
         plugin = this
+        es = Executors.newCachedThreadPool()
         pluginEnable = config.getBoolean("mode")
         heads = SInventoryItem(
             SItemStack(plugin.config.getString("cointex.heads.material")?.let { Material.valueOf(it) }).setDisplayName("§e表").setCustomModelData(
@@ -63,5 +67,9 @@ class CoinFlip : JavaPlugin(){
         getCommand("coinflip")?.setExecutor(CoinFlipCommand())
         getCommand("coinflip")?.tabCompleter = CoinFlipCommand()
 
+    }
+
+    override fun onDisable() {
+        es.shutdownNow()
     }
 }

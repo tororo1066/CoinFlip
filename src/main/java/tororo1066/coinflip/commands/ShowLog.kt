@@ -1,11 +1,13 @@
 package tororo1066.coinflip.commands
 
+import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import tororo1066.coinflip.CoinFlip
 import tororo1066.coinflip.CoinFlipLog
+import java.util.concurrent.Callable
 
 class ShowLog : CommandExecutor {
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
@@ -18,9 +20,8 @@ class ShowLog : CommandExecutor {
             CoinFlip.sendMsg(sender,"§4このコマンドはプレイヤーのみ実行できます")
             return true
         }
-
         val logdata = CoinFlipLog().showlog(sender.uniqueId)
-        if (!logdata.succes){
+        if (!logdata.success){
             CoinFlip.sendMsg(sender,"§4データが存在しません")
             return true
         }
