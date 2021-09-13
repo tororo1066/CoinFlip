@@ -12,6 +12,7 @@ import org.bukkit.entity.Player
 import org.checkerframework.checker.nullness.qual.NonNull
 import org.jetbrains.annotations.Nullable
 import tororo1066.coinflip.CoinFlip.Companion.broadcast
+import tororo1066.coinflip.CoinFlip.Companion.format
 import tororo1066.coinflip.CoinFlip.Companion.mysql
 import tororo1066.coinflip.CoinFlip.Companion.plugin
 import tororo1066.coinflip.CoinFlip.Companion.vault
@@ -159,7 +160,7 @@ class CoinFlipRoom(private val playeruuid : UUID, val bet : Double, private val 
 
             if (time % 10 == 0){
                 Bukkit.broadcast(runcmd("§l${name}§aが§b${if (heads) "§c§l表" else "§b§l裏"}の予想§aで§e§lCoinFlip§aを募集中...残り${time}秒\n" +
-                        "§f/cf join $name §e必要金額 $bet ${if (!heads) "§c§l表" else "§b§l裏"}§eだと思う人は参加してみよう！","/cf join $name","§6またはここをクリック！"), Server.BROADCAST_CHANNEL_USERS)
+                        "§f/cf join $name §e必要金額 ${format(bet)}円 ${if (!heads) "§c§l表" else "§b§l裏"}§eだと思う人は参加してみよう！","/cf join $name","§6またはここをクリック！"), Server.BROADCAST_CHANNEL_USERS)
             }
 
         }

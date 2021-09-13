@@ -10,6 +10,7 @@ class PriceCommand : CommandExecutor {
 
         CoinFlip.coinConfig.set("minmoney",args[1].toDouble())
         CoinFlip.coinConfig.set("maxmoney",args[2].toDouble())
+        CoinFlip.plugin.saveConfig()
 
         CoinFlip.sendMsg(sender,"§b金額の指定を${args[1]}~${args[2]}に設定しました")
 
