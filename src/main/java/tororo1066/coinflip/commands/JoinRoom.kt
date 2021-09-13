@@ -40,6 +40,7 @@ class JoinRoom : CommandExecutor {
             return true
         }
 
+        CoinFlip.vault.withdraw(sender.uniqueId,CoinFlip.coinFlipData[uuid]!!.bet)
         CoinFlip.coinFlipData[uuid]!!.addJoinPlayer(sender)
 
         return true
