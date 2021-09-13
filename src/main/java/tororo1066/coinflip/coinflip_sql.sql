@@ -1,0 +1,24 @@
+CREATE TABLE `coinflip_data_log` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`startUUID` VARCHAR(36) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`startMCID` VARCHAR(16) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`joinUUID` VARCHAR(36) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`joinMCID` VARCHAR(16) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`bet` DOUBLE NULL DEFAULT NULL,
+	`win` VARCHAR(16) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	PRIMARY KEY (`id`) USING BTREE
+);
+
+CREATE TABLE `coinflip_player_log` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`uuid` VARCHAR(36) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`mcid` VARCHAR(16) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`win` INT(10) NOT NULL DEFAULT '0',
+	`lose` INT(10) NOT NULL DEFAULT '0',
+	`wincollect` DOUBLE NOT NULL DEFAULT '0',
+	`losecollect` DOUBLE NOT NULL DEFAULT '0',
+	`maxcollect` DOUBLE NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`) USING BTREE,
+	INDEX `coinflip_player_index_mcid` (`mcid`) USING BTREE,
+	INDEX `coinflip_player_index_uuid` (`uuid`) USING BTREE
+);
