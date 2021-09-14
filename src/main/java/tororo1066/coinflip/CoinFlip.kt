@@ -42,7 +42,7 @@ class CoinFlip : JavaPlugin(){
         }
 
         fun broadcast(s : String){
-            Bukkit.broadcast(Component.text("§f[§eCoinFlip§f]§r$s"), Server.BROADCAST_CHANNEL_USERS)
+            Bukkit.broadcast(Component.text("§f[§e§lCoinFlip§f]§r$s"), Server.BROADCAST_CHANNEL_USERS)
         }
 
         fun format(double: Double):String{

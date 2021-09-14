@@ -105,6 +105,7 @@ public abstract class SCommandRouter implements @Nullable CommandExecutor, @Null
             if(obj.hasPermission((Player) data.sender)) data.sender.sendMessage(obj.helpText(data.label, "§d"));
         }
         data.sender.sendMessage("§e===================================");
+        data.sender.sendMessage("§cheadsは表、tailsは裏です！");
         data.sender.sendMessage("§lコマンドクリックで情報表示");
         data.sender.sendMessage("§bPlugin Created By tororo_1066 §c(API Created By Sho0)");
     }

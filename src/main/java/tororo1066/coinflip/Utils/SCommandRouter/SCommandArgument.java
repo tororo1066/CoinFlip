@@ -39,6 +39,8 @@ public class SCommandArgument {
         if (type == SCommandArgumentType.HEADSORTAILS){
             alias.add("heads");
             alias.add("tails");
+            alias.add("表");
+            alias.add("裏");
         }
         return this;
     }
@@ -74,7 +76,7 @@ public class SCommandArgument {
                         }
                         return false;
                     case HEADSORTAILS:
-                        if (!"heads".equalsIgnoreCase(arg) && !"tails".equalsIgnoreCase(arg)){
+                        if (!"heads".equalsIgnoreCase(arg) && !"tails".equalsIgnoreCase(arg) && !"表".equalsIgnoreCase(arg) && !"裏".equalsIgnoreCase(arg)){
                             return false;
                         }
                         return true;

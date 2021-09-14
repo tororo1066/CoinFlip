@@ -44,8 +44,10 @@ class CreateRoom : CommandExecutor {
             return true
         }
 
-        CoinFlip.coinFlipData[sender.uniqueId] = CoinFlipRoom(sender.uniqueId, bet ,args[2] == "heads")//部屋データを入れる
-        CoinFlip.coinFlipData[sender.uniqueId]?.data?.put(sender.uniqueId, CoinFlipRoom.PlayerData(sender.uniqueId,args[2] == "heads"))//プレイヤーデータを入れる
+        val heads = args[2] == "heads" || args[2] == "表"
+
+        CoinFlip.coinFlipData[sender.uniqueId] = CoinFlipRoom(sender.uniqueId, bet ,heads)//部屋データを入れる
+        CoinFlip.coinFlipData[sender.uniqueId]?.data?.put(sender.uniqueId, CoinFlipRoom.PlayerData(sender.uniqueId,heads))//プレイヤーデータを入れる
         CoinFlip.coinFlipData[sender.uniqueId]?.start()//スレッドをスタートする(ゲーム)
 
 
